@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_base>
+            <children>
+                <sm_productlabel translate="title" module="sm_productlabel">
+                    <title>Product Label</title>
+                    <sort_order>70</sort_order>
+                    <children>
+                        <image module='sm_productlabel'>
+                            <title>Manage Product Label</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/product_label</action>
+                        </image>
+                        <settings translate="title" module="sm_productlabel">
+                            <title>Settings</title>
+                            <sort_order>9</sort_order>
+                            <action>adminhtml/system_config/edit/section/sm_productlabel</action>
+                        </settings>
+                    </children>
+                </sm_productlabel>
+            </children>
+        </sm_base>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sm_base>
+                        <children>
+                            <sm_productlabel translate="title">
+                                <title>Product Label</title>
+                                <sort_order>70</sort_order>
+                                <children>
+                                    <image translate="title">
+                                        <title>Manage Product Label</title>
+                                        <sort_order>1</sort_order>
+                                    </image>
+                                    <settings translate="title">
+                                        <title>Settings</title>
+                                        <sort_order>9</sort_order>
+                                    </settings>
+                                </children>
+                            </sm_productlabel>
+                        </children>
+                    </sm_base>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_productlabel translate="title">
+                                        <title>SM Product Label Section</title>
+                                        <sort_order>70</sort_order>
+                                    </sm_productlabel>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout>
+	<adminhtml_sm_megamenu_index>
+		<reference name="content">
+			<block type="sm_megamenu/adminhtml_megamenu" name="megamenu"/>
+		</reference>
+	</adminhtml_sm_megamenu_index>
+	<adminhtml_sm_megamenu_edit>
+		<!-- <update handle="edit"/> -->
+		<reference name="content">
+			<block type="sm_megamenu/adminhtml_megamenu_edit" name="megamenu_edit"/>
+		</reference>
+		<reference name="left">
+			<block type="sm_megamenu/adminhtml_megamenu_edit_tabs" name="megamenu_tabs"/>
+		</reference>
+	</adminhtml_sm_megamenu_edit>
+</layout>

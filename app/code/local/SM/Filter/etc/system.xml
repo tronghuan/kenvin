@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <sm_filter translate="label" module="sm_filter">
+            <tab>sm_base</tab>
+            <label>Filter Product</label>
+            <sort_order>50</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <general translate="label">
+                    <label>General Configuration</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <ajax_enable translate="label">
+                            <label>Ajax enable</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ajax_enable>
+                        <price_slider translate="label">
+                            <label>Enable Price Slider</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_slider>
+                        <price_slider_submit_type translate="label">
+                            <label>Price Slider Submit Type</label>
+                            <frontend_type>select</frontend_type>
+                            <comment>in seconds</comment>
+                            <source_model>sm_filter/source_submit</source_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <price_slider>1</price_slider>
+                            </depends>
+                        </price_slider_submit_type>
+                        <price_slider_delay translate="label">
+                            <label>Price Slider Delay</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>in seconds</comment>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <price_slider_submit_type>1</price_slider_submit_type>
+                            </depends>
+                        </price_slider_delay>
+                    </fields>
+                </general>
+            </groups>
+        </sm_filter>
+    </sections>
+</config>

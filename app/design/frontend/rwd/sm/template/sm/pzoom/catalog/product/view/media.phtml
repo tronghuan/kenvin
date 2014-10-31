@@ -1,0 +1,87 @@
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+    $_helperSM = $this->helper('sm_pzoom');
+?>
+<div class="product-image product-image-zoom">
+    <?php 
+    $mainImageWidth = $_helperSM->getMainImageWidth();
+    $mWidth = $mainImageWidth ? 'width:' . $mainImageWidth . 'px;' : '';
+    $mainImageWidthHeight = $_helperSM->getMainImageHeight();
+    $mHeight = $mainImageHeight ? 'height' . $mainImageHeight . 'px;' : '';
+     ?>
+    <div class="product-image-gallery" id="products-gal" style="margin:auto; <?php echo $mWidth . $mHeight ?>">
+        <?php 
+        if (Mage::helper('sm_productlabel')->isProductLabelEnable()) {
+            $_tag = '<div class="">';
+            $labelBlock = Mage::app()->getLayout()
+                ->createBlock('sm_productlabel/label')
+                ->setProduct($_product)
+                ->setOpenTag($_tag)
+                ->toHtml();
+            echo $labelBlock;
+        } else { echo $_tag; }
+         ?>
+        <img id="image-main"
+             class="gallery-image visible"
+             src="<?php echo $this->helper('catalog/image')->init($_product, 'image') ?>"
+             alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
+             title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
+        <?php
+            $i=0;
+            foreach ($this->getGalleryImages() as $_image):
+                $_imageUrl = $this->helper('catalog/image')
+                                  ->init($_product, 'image', $_image->getFile())
+                                  ->keepFrame(false)
+                                  ->constrainOnly(true)
+                                  ->resize(1200);
+        ?>
+            <a href="" data-zoom-image="<?php echo  $_imageUrl; ?>"><img id="image-<?php echo $i; ?>"
+                   class="gallery-image"
+                   src="<?php echo $_imageUrl; ?>"
+                   data-zoom-image="<?php echo  $_imageUrl; ?>" /></a>
+        <?php
+            $i++;
+            endforeach;
+        ?>
+        </div>
+    </div>
+</div>
+
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views">
+    <h2><?php echo $this->__('More Views') ?></h2>
+    <ul class="product-image-thumbs">
+    <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+        <?php
+        if (($filterClass = $this->getGalleryFilterHelper()) && ($filterMethod = $this->getGalleryFilterMethod()) && !Mage::helper($filterClass)->$filterMethod($_product, $_image)):
+            continue;
+        endif;
+        ?>
+        <li>
+            <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize($_helperSM->getThumbnailImageHeight()); ?>"
+                     width="<?php echo $_helperSM->getThumbnailImageHeight() ?>" height="<?php echo $_helperSM->getThumbnailImageHeight() ?>" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+            </a>
+        </li>
+    <?php $i++; endforeach; ?>
+    </ul>
+</div>
+<?php endif; ?>
+
+<?php echo $this->getChildHtml('after'); ?>
+<?php 
+$boxZoomImageWidth = $_helperSM->getBoxZoomImageWidth();
+$boxZoomImageHeight = $_helperSM->getBoxZoomImageHeight();
+ ?>
+<script>
+    window.smPzoomVariable = {
+        galleryActiveClass: "active",
+        gallery:'products-gal',
+        scrollZoom : true,
+        easing : true,
+        cursor: 'pointer',
+        <?php if ($boxZoomImageWidth) {echo 'zoomWindowWidth:'.$boxZoomImageWidth.',';}; ?>
+        <?php if ($boxZoomImageHeight) {echo 'zoomWindowHeight:'.$boxZoomImageHeight.',';}; ?>
+    }
+</script>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_ProductLabel>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>sm_base</depends>
+        </SM_ProductLabel>
+    </modules>
+</config>

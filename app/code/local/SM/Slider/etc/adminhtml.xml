@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_base>
+            <children>
+                <sm_slider translate="title" module="sm_slider">
+                    <title>Slider</title>
+                    <sort_order>20</sort_order>
+                    <children>
+                        <manager_sliders translate="title" module="sm_slider">
+                            <title>Manage Sliders</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/sm_slider_slider/index</action>
+                        </manager_sliders>
+                        <manager_images translate="title" module="sm_slider">
+                            <title>Manage Images</title>
+                            <sort_order>2</sort_order>
+                            <action>adminhtml/sm_slider_image/index</action>
+                        </manager_images>
+                        <settings translate="title" module="sm_slider">
+                            <title>Settings</title>
+                            <sort_order>9</sort_order>
+                            <action>adminhtml/system_config/edit/section/sm_slider</action>
+                        </settings>
+                    </children>
+                </sm_slider>
+            </children>
+        </sm_base>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sm_base>
+                        <children>
+                            <sm_slider translate="title">
+                                <title>Slider</title>
+                                <sort_order>20</sort_order>
+                                <children>
+                                    <manager_sliders translate="title">
+                                        <title>Manager Sliders</title>
+                                        <sort_order>1</sort_order>
+                                    </manager_sliders>
+                                    <manager_images translate="title">
+                                        <title>Manage Images</title>
+                                        <sort_order>2</sort_order>
+                                    </manager_images>
+                                    <settings translate="title">
+                                        <title>Settings</title>
+                                        <sort_order>9</sort_order>
+                                    </settings>
+                                </children>
+                            </sm_slider>
+                        </children>
+                    </sm_base>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <sm_slider translate="title">
+                                        <title>SM Slider Section</title>
+                                        <sort_order>100</sort_order>
+                                    </sm_slider>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

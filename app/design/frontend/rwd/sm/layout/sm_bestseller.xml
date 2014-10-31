@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<layout>
+	<cms_index_index>
+		<reference name="content">
+            <block type="sm_bestseller/bestseller_home" name="sm_bestseller_slider">
+            	<action method="setTemplate">
+            		<template helper="sm_bestseller/getTemplateForHomePage" />
+            	</action>
+			</block>
+		</reference>
+	</cms_index_index>
+	<catalog_category_view>
+		<reference name="content">
+            <block type="sm_bestseller/bestseller_category" name="sm_bestseller_slider" after="category.products">
+            	<action method="setTemplate">
+            		<template helper="sm_bestseller/getTemplateForCategoryPage" />
+            	</action>
+			</block>
+		</reference>
+	</catalog_category_view>
+</layout>

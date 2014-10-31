@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<layout>
+	<adminhtml_sm_slider_slider_index>
+		<reference name="content">
+			<block type="sm_slider/adminhtml_slider" name="slider" />
+		</reference>
+	</adminhtml_sm_slider_slider_index>
+	<adminhtml_sm_slider_slider_edit>
+		<reference name="content">
+			<block type="sm_slider/adminhtml_slider_edit" name="slider_edit" />
+		</reference>
+	</adminhtml_sm_slider_slider_edit>
+
+	<adminhtml_sm_slider_image_index>
+		<reference name="content">
+			<block type="sm_slider/adminhtml_image" name="image" />
+		</reference>
+	</adminhtml_sm_slider_image_index>
+	<adminhtml_sm_slider_image_edit>
+		<reference name="content">
+			<block type="sm_slider/adminhtml_image_edit" name="image_edit" />
+		</reference>
+		<reference name="left">
+			<block type="sm_slider/adminhtml_image_edit_tabs" name="megamenu_tabs"/>
+		</reference>
+	</adminhtml_sm_slider_image_edit>
+</layout>

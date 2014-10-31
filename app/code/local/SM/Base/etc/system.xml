@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <sm_base translate="label">
+            <label>SM Extention</label>
+            <sort_order>200</sort_order>
+        </sm_base>
+    </tabs>
+</config>

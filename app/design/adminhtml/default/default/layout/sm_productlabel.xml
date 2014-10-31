@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_product_label_index>
+    	<reference name='content'>
+    		<block type='sm_productlabel/adminhtml_productlabel' name='productlabel'/>
+    	</reference>
+    </adminhtml_product_label_index>
+</layout>

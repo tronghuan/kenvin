@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sm_base translate="title">
+            <title>SM</title>
+            <sort_order>100</sort_order>
+        </sm_base>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <sm_base translate="title">
+                        <title>SM</title>
+                        <sort_order>100</sort_order>
+                    </sm_base>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

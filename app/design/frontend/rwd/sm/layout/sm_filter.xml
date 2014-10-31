@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout>
+	<catalog_category_view>
+		<reference name="head">
+			<action method="addItem" ifconfig="sm_filter/general/ajax_enable">
+				<type>skin_js</type>
+				<name>js/sm_filter.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery.dropdown.js</name>
+			</action>
+			<action method="addCss">
+				<name>css/dropdown.css</name>
+			</action>
+		</reference>
+	</catalog_category_view>
+</layout>

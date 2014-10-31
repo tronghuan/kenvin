@@ -1,0 +1,32 @@
+<?php if (Mage::getStoreConfig('sm_slider/general/enable')): ?>
+	<?php if ($this->getImages() !== false): ?>
+	<div class="sm-slider">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<?php foreach ($this->getImages() as $image): ?>
+				<div class="swiper-slide"> 
+					<img src="<?php echo Mage::getUrl('media').$image->getPath() ?>" class="slide-image" alt="" />
+					<?php if ($this->getSliderConfig('showtext')): ?>
+					<div class="text-wrapper">
+						<p class="text"><?php echo $image->getText(); ?></p>
+					</div>	
+					<?php endif; ?>
+				</div>
+				<?php endforeach ?>		
+			</div>
+		</div>
+	 </div>
+	<?php endif ?>
+<?php endif; ?>
+
+<script>
+$j(function(){
+  var mySwiper1 = new Swiper('.sm-slider .swiper-container',{
+  	mode: '<?php echo $this->getSliderConfig("mode") ?>',
+    loop: true,
+    autoplay: 5000,
+    speed: 5000,
+    calculateHeight: true,
+  });
+})
+</script>

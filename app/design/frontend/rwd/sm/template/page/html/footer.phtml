@@ -1,0 +1,36 @@
+<div class="footer-container">
+    <div class="footer">
+    	<div class="top-footer">
+    		<div class="span4">
+    			<?php echo $this->getChildHtml('newsletter') ?>
+    		</div>
+    		<div class="span4">
+    			<div class="block">
+    				<div class="block-title">
+				        <strong><span>Payment options</span></strong>
+				    </div>
+				    <div class="content">
+				    	<img src="<?php echo Mage::getUrl('media').'sm'.DS.'payment.jpg' ?>" alt="">
+				    </div>
+    			</div>
+    		</div>
+    		<div class="span4 last-item">
+    			<div class="block">
+    				<div class="block-title">
+				        <strong><span>Free shipping on orders over $100</span></strong>
+				    </div>
+				    <div class="content">
+				    	<img src="<?php echo Mage::getUrl('media').'sm'.DS.'shipping.jpg' ?>" alt="">
+				    </div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="container">
+    		<?php echo $this->getChildHtml('footer.about-us') ?>
+    		<?php echo $this->getChildHtml('footer.from-twitter') ?>
+    		<?php echo $this->getChildHtml('footer.customer-service') ?>
+    		<?php echo $this->getChildHtml('footer.connect-us') ?>
+    	</div>
+        <address class="copyright"><?php echo $this->getCopyright() ?></address>
+    </div>
+</div>

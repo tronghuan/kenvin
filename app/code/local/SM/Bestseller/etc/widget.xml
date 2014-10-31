@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<widgets>
+    <sm_bestseller type="sm_bestseller/bestseller_home" translate="name description" module="sm_bestseller">
+        <name>Bestseller</name>
+        <description>Chon vi tri hien thi Bestseller</description>
+        <parameters>
+            <template translate="label">
+                <label>Bestseller Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <values>
+                    <bestseller translate="label">
+                        <value>sm/bestseller/product.phtml</value>
+                        <label>Bestseller phtml</label>
+                    </bestseller>
+                </values>
+            </template>
+        </parameters>
+    </sm_bestseller>
+</widgets> 

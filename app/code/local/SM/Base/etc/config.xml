@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <SM_Base>
+            <version>1.0.0</version>
+        </SM_Base>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <sm_base>
+                    <file>sm_base.xml</file>
+                </sm_base>
+            </updates>
+        </layout>
+    </frontend>
+    <global>
+        <blocks>
+            <sm_base>
+                <class>SM_Base_Block</class>
+            </sm_base>
+        </blocks>
+        <helpers>
+            <sm_base>
+                <class>SM_Base_Helper</class>
+            </sm_base>
+        </helpers>
+        <models>
+            <sm_base>
+                <class>SM_Base_Model</class>
+            </sm_base>
+        </models>
+    </global>
+    <!-- DEBUG ADMIN TEMPLATE HINT -->
+    <stores>
+        <admin>
+            <dev>
+                <debug>
+                    <template_hints>0</template_hints>
+                    <template_hints_blocks>0</template_hints_blocks>
+                </debug>
+            </dev>
+        </admin>
+    </stores>
+</config>

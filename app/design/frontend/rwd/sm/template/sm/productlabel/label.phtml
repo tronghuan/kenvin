@@ -1,0 +1,12 @@
+<?php 
+	$_helper = Mage::helper('sm_productlabel'); 
+	$_product = $this->getProduct();
+?>
+<?php if ($_helper->isProductLabelEnable()): ?>
+	<?php echo $this->getOpenTag() ?>
+	<?php foreach($_product->getProductLabelsData() as $_label): ?>
+	    <?php echo '<img class="label label-' . $_helper->getStylePosition($_label->getPositional()) . '" src="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'SM/ProductLabel/images/'.$_label->getImagename().'" />'; ?>
+	<?php endforeach; ?> 
+<?php else: ?>
+	<?php echo $this->getOpenTag() ?>
+<?php endif; ?>

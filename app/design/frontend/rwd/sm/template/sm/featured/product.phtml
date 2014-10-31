@@ -1,0 +1,37 @@
+<?php if (($_products = $this->getProductCollection()) && $_products->getSize()): ?>
+<h2 class="subtitle"><?php echo $this->__('Featured product') ?></h2>
+<div class="swiper-featured-container swiper-container">
+    <a class="arrow-left" href="#"><i class="fa fa-arrow-left"></i>
+</a> 
+    <a class="arrow-right" href="#"><i class="fa fa-arrow-right"></i>
+</a>
+    <div class="swiper-wrapper">
+        <?php //echo "<pre>"; var_dump($_products->getData()); ?>
+    <?php foreach ($_products->getItems() as $_product): ?>
+
+            <div class="swiper-slide">
+
+                <div class="swiper-slider-inner">
+                    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>" class="product-image">
+                        <?php $_imgSize = 260; ?>
+                        <?php if ($this->isShowLabel()) {
+                            $labelBlock = Mage::app()->getLayout()
+                                ->createBlock('sm_productlabel/label')
+                                ->setProduct($_product)
+                                ->setOpenTag('<div class="">')
+                                ->toHtml();
+                            echo $labelBlock;
+                        } ?>
+                        <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                        <?php if ($this->isShowLabel()) echo '</div>' ?>
+                    </a>
+                    <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_product->getName()) ?>"><?php echo $this->escapeHtml($_product->getName()) ?></a></h3>
+                    <?php echo $this->getPriceHtml($_product, true, '-new') ?>
+                </div>
+            </div>
+
+    <?php endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
+<?php echo $this->_getSwipperScript(); ?>

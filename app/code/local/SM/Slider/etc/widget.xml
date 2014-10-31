@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<widgets>
+    <sm_slider type="sm_slider/slider" translate="name description" module="sm_slider">
+        <name>Slider</name>
+        <description>Chon vi tri hien thi Slider</description>
+        <parameters>
+            <template translate="label">
+                <label>Slider Template</label>
+                <visible>1</visible>
+                <required>1</required>
+                <type>select</type>
+                <values>
+                    <slider translate="label">
+                        <value>sm/slider/slider.phtml</value>
+                        <label>Slider phtml</label>
+                    </slider>
+                </values>
+            </template>
+        </parameters>
+    </sm_slider>
+</widgets> 

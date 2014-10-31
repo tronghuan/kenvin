@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout>
+	<default>
+		<reference name="catalog.topnav.renderer">
+			<action method="setTemplate" ifconfig="sm_megamenu/general/enable">
+				<template>sm/megamenu/topmenu/renderer.phtml</template>
+			</action>
+		</reference>
+	</default>
+</layout>

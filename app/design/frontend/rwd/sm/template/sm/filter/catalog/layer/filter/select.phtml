@@ -1,0 +1,28 @@
+<div id="test-dropdown" class="dropdown custom-dropdown">
+    <a class="dropdown-button button">Select<i class="fa fa-chevron-down"></i>
+</a>
+    <div class="dropdown-panel">
+        <h4>Select</h4>
+        <ul>
+        <?php foreach ($this->getItems() as $_item): ?>
+            <li class="<?php echo $_item->isSelected() === true ? 'selected' : ''; ?>">
+                <?php if ($_item->getCount() > 0): ?>
+                    <a href="<?php echo $this->urlEscape($_item->getUrl()) ?>">
+                        <?php echo $_item->getLabel() ?>
+                        <?php if ($this->shouldDisplayProductCount()): ?>
+                        <span class="count">(<?php echo $_item->getCount() ?>)</span>
+                        <?php endif; ?>
+                    </a>
+                <?php else: ?>
+                    <span>
+                        <?php echo $_item->getLabel(); ?>
+                        <?php if ($this->shouldDisplayProductCount()): ?>
+                            <span class="count">(<?php echo $_item->getCount() ?>)</span>
+                        <?php endif; ?>
+                    </span>
+                <?php endif; ?>
+            </li>
+        <?php endforeach ?>
+        </ul>
+    </div>
+</div>

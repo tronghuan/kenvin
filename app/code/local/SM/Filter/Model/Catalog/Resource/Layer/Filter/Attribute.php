@@ -63,9 +63,9 @@ class SM_Filter_Model_Catalog_Resource_Layer_Filter_Attribute
         // start removing all filters for current attribute - we need correct count
         $parts = $select->getPart(Zend_Db_Select::FROM);
         $from = array();
-        foreach ($parts as $key => $part) {
+        foreach ($parts as $key => $val) {
             if (stripos($key, $tableAlias) === false) {
-                $from[$key] = $part;
+                $from[$key] = $val;
             }
         }
         $select->setPart(Zend_Db_Select::FROM, $from);
@@ -76,7 +76,6 @@ class SM_Filter_Model_Catalog_Resource_Layer_Filter_Attribute
                 join(' AND ', $conditions),
                 array('value', 'count' => new Zend_Db_Expr("COUNT({$tableAlias}.entity_id)")))
             ->group("{$tableAlias}.value");
-
         return $connection->fetchPairs($select);
     }
 

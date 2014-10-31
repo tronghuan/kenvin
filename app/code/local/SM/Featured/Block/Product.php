@@ -117,7 +117,7 @@ class SM_Featured_Block_Product extends Mage_Catalog_Block_Product_Abstract
         $script = "<script>
             \$j(function() {
                 var featuredSwiper = \$j('.swiper-featured-container').swiper({
-                    slidesPerView:".$this->_getSlidePerView();
+                    slidesPerView:".$this->_getSlidePerView().",";
 
             if (Mage::getStoreConfig('sm_featured/general/type') == '3d') {
                 $script .= "

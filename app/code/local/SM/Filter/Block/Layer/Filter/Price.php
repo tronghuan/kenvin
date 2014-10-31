@@ -1,4 +1,9 @@
 <?php
+
+/**
+ * Class SM_Filter_Block_Layer_Filter_Price
+ * @author HuanDT
+ */
 class SM_Filter_Block_Layer_Filter_Price 
     extends Mage_Catalog_Block_Layer_Filter_Price
 {

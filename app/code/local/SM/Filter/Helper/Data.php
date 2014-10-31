@@ -1,7 +1,9 @@
 <?php
+
 /**
-*
-*/
+ * Class SM_Filter_Helper_Data
+ * @author HuanDT
+ */
 class SM_Filter_Helper_Data
     extends Mage_Core_Helper_Abstract
 {
@@ -25,5 +27,3 @@ class SM_Filter_Helper_Data
 	    return (int) Mage::getStoreConfig('sm_filter/general/price_slider_submit_type');
 	}
 }
-
- ?>

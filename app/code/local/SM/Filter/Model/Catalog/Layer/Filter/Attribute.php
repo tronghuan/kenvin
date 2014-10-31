@@ -23,7 +23,6 @@ class SM_Filter_Model_Catalog_Layer_Filter_Attribute
         if (empty($filter)) {
             return $this;
         }
-
         $this->_values = explode(',', $filter);
         foreach ($this->_values as $value) {
             $text = $this->_getOptionText($value);
@@ -33,7 +32,6 @@ class SM_Filter_Model_Catalog_Layer_Filter_Attribute
         }
         if (!empty($this->_values)) {
             $this->_getResource()->applyFilterToCollection($this, $this->_values);
-            // $this->_items = array();
         }
         return $this;
     }

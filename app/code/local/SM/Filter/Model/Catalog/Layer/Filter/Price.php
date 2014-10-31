@@ -29,7 +29,7 @@ class SM_Filter_Model_Catalog_Layer_Filter_Price
         
         // Remove price sql conditions
         $conditionsNoPrice = array();
-        foreach ($conditions as $key => $condition) {
+        foreach ($conditions as $condition) {
             if (stripos($condition, 'price_index') !== false) {
                 continue;
             }

@@ -19,7 +19,6 @@
 
 <script type="text/javascript">
     priceSliderUrlTemplate = '<?php echo $this->getUrlPattern(); ?>';
-    
     <?php if (!$this->getRequest()->isAjax()): ?>
     function handlePriceEvent(val) {
         if (val) {
@@ -27,12 +26,11 @@
             <?php if ($this->helper('sm_filter')->isAjaxEnable()): ?>
             $j('<a href="'+url+'"></a>').smFilterAjax();
             <?php else: ?>
-            window.location.href = url;    
+            window.location.href = url;
             <?php endif; ?>
         }
     }
     <?php endif; ?>
-    
     maxPriceInt = <?php echo $this->getMaxPriceFloat(); ?>;
     minPriceInt = <?php echo $this->getMinPriceFloat(); ?>;
     <?php if (!$this->isSubmitTypeButton()): ?>
@@ -41,24 +39,23 @@
     <?php endif; ?>
     // horizontal slider control with preset values
     new Control.Slider([$('price-min'), $('price-max')], 'price-range', {
-        range: $R(minPriceInt, maxPriceInt),
-        sliderValue: [<?php echo $this->getCurrentMinPriceFilter(); ?>, <?php echo $this->getCurrentMaxPriceFilter(); ?>],
-        values: $R(minPriceInt, maxPriceInt),
-
+        range: $R(minPriceInt, maxPriceInt+1),
+        sliderValue: [<?php echo $this->getCurrentMinPriceFilter(); ?>, <?php echo $this->getCurrentMaxPriceFilter()+1; ?>],
+        values: $R(minPriceInt, maxPriceInt+1),
         restricted: true,
         onChange: function(val){
             if (val[0] != <?php echo $this->getCurrentMinPriceFilter(); ?> || val[1] != <?php echo $this->getCurrentMaxPriceFilter(); ?>) {
                 <?php if ($this->isSubmitTypeButton()): ?>
-                    $('button-price-slider').value = val.join('-');
+                $('button-price-slider').value = val.join('-');
                 <?php else: ?>
-                    if (timerSlider) {
-                        clearTimeout(timerSlider);
-                    }
-                    timerSlider = setTimeout(handlePriceEvent, priceSliderDelay, val.join('-'));
+                if (timerSlider) {
+                    clearTimeout(timerSlider);
+                }
+                timerSlider = setTimeout(handlePriceEvent, priceSliderDelay, val.join('-'));
                 <?php endif; ?>
             }
         },
-        onSlide: function(val){ 
+        onSlide: function(val){
             $('price-max-display').innerHTML = val[1];
             $('price-min-display').innerHTML = val[0];
         }

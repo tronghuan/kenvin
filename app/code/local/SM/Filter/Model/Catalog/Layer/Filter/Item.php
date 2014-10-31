@@ -6,7 +6,9 @@ class SM_Filter_Model_Catalog_Layer_Filter_Item
 
     public function getUrl()
     {
-
+        /**
+         * Them phan xu ly filter nhieu tuoc tinh cung luc
+         */
         $values = $this->getFilter()->getValues();
         if (!empty($values)) {
             if (in_array($this->getValue(), $values)) {
